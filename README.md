@@ -13,13 +13,13 @@ A production-ready team task management application with JWT authentication, rol
 - Dashboard metrics, charts, and recent activity
 - Responsive sidebar dashboard UI with dark mode
 - Toast notifications, loading states, empty states, and confirmation dialogs
-- SQLite database with Prisma ORM and seed data
+- PostgreSQL database with Prisma ORM and seed data
 
 ## Tech Stack
 
 Frontend: React, Vite, React Router, Tailwind CSS, Axios, Context API, React Toastify, Chart.js  
 Backend: Node.js, Express, JWT, bcryptjs, Prisma ORM, Zod  
-Database: SQLite  
+Database: PostgreSQL 
 Deployment: Railway via `railway.json`
 
 ## Project Structure
@@ -92,7 +92,7 @@ Frontend runs at `http://localhost:5173`. Backend runs at `http://localhost:5000
 Backend `.env`:
 
 ```env
-DATABASE_URL="file:./dev.db"
+DATABASE_URL="postgresql://username:password@host:5432/railway"
 JWT_SECRET="replace-with-a-long-random-secret"
 JWT_EXPIRES_IN="7d"
 PORT=5000
@@ -107,10 +107,11 @@ VITE_API_URL=http://localhost:5000/api
 
 ## Demo Credentials
 
-All seeded accounts must use password provided 
+All seeded accounts must use the id and password provided 
 
-- Admin: `sriya1@gmail.com`           Password: Sriya1@321
-- Member: `riddhi@gmail.com`          Password: Ridhhi@4321
+- Admin: `sriya@gmail.com` Password: Sriya@4321          
+- Member:`anshu@gmail.com` Password: Anshu@4321
+- Member:`pooja@gmail.com` Password: Pooja@4321
 
 
 ## API Documentation
@@ -155,7 +156,7 @@ Dashboard:
 The root `railway.json` builds the frontend, generates Prisma Client, and starts the Express server. In Railway, set:
 
 ```env
-DATABASE_URL=file:./prod.db
+DATABASE_URL=<Railway PostgreSQL URL>
 JWT_SECRET=<long-random-secret>
 JWT_EXPIRES_IN=7d
 NODE_ENV=production
