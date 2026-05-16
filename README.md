@@ -107,11 +107,10 @@ VITE_API_URL=http://localhost:5000/api
 
 ## Demo Credentials
 
-All seeded accounts use 
+All seeded accounts must use password provided 
 
-- Admin: `riyaasrivastav04@gmail.com` Password: Riya@1234
-- Member: `fakestumble1888@gmail.com` Password: Ansh@1234
-- Member: `riyas12@gmail.com`         Password: Riya@1234
+- Admin: `riya11@gmail.com`           Password: Riya@1234
+- Member: `test1@gmail.com`           Password: Test@1234
 
 
 ## API Documentation
