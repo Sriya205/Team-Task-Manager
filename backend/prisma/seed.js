@@ -13,20 +13,20 @@ async function main() {
   await prisma.project.deleteMany();
   await prisma.user.deleteMany();
 
-  const password = await bcrypt.hash('Riya@123', 12);
-  const demoPassword = await bcrypt.hash('Demo@1234', 12);
-  const testPassword = await bcrypt.hash('Test@1234', 12);
+  const password = await bcrypt.hash('Sriya@4321', 12);
+  const anshuPassword = await bcrypt.hash('Anshu@4321', 12);
+  const poojaPassword = await bcrypt.hash('Pooja@4321', 12);
 
   const admin = await prisma.user.create({
-    data: { name: 'Admin', email: 'riya11@gmail.com', password, role: 'Admin' }
+    data: { name: 'Sriya', email: 'sriya@gmail.com', password, role: 'Admin' }
   });
 
-  const demo = await prisma.user.create({
-    data: { name: 'Demo Member', email: 'demomember@gmail.com', password: demoPassword, role: 'Member' }
+  const anshu = await prisma.user.create({
+    data: { name: 'Anshu', email: 'anshu@gmail.com', password: anshuPassword, role: 'Member' }
   });
 
-  const test = await prisma.user.create({
-    data: { name: 'test Member', email: 'test1@gmail.com', password: testPassword, role: 'Member' }
+  const pooja = await prisma.user.create({
+    data: { name: 'Pooja', email: 'pooja@gmail.com', password: poojaPassword, role: 'Member' }
   });
 
   const launch = await prisma.project.create({
@@ -53,7 +53,7 @@ async function main() {
         status: 'InProgress',
         priority: 'High',
         dueDate: futureDate(3),
-        assignedTo: demo.id,
+        assignedTo: anshu.id,
         projectId: launch.id,
         createdBy: admin.id
       },
@@ -63,7 +63,7 @@ async function main() {
         status: 'Pending',
         priority: 'Medium',
         dueDate: futureDate(7),
-        assignedTo: test.id,
+        assignedTo: pooja.id,
         projectId: launch.id,
         createdBy: admin.id
       },
@@ -73,7 +73,7 @@ async function main() {
         status: 'Completed',
         priority: 'Low',
         dueDate: futureDate(-2),
-        assignedTo: demo.id,
+        assignedTo: anshu.id,
         projectId: ops.id,
         createdBy: admin.id
       },
@@ -83,7 +83,7 @@ async function main() {
         status: 'Overdue',
         priority: 'High',
         dueDate: futureDate(-1),
-        assignedTo: test.id,
+        assignedTo: pooja.id,
         projectId: ops.id,
         createdBy: admin.id
       }
