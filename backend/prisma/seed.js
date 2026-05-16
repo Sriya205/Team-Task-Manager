@@ -13,7 +13,7 @@ async function main() {
   await prisma.project.deleteMany();
   await prisma.user.deleteMany();
 
-  const adminpassword = await bcrypt.hash('Riya@123', 12);
+  const password = await bcrypt.hash('Riya@123', 12);
   const demoPassword = await bcrypt.hash('Demo@1234', 12);
   const testPassword = await bcrypt.hash('Test@1234', 12);
 
