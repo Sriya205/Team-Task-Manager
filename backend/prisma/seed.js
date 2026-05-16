@@ -21,11 +21,11 @@ async function main() {
     data: { name: 'Admin', email: 'riya11@gmail.com', password, role: 'Admin' }
   });
 
-  const Demo = await prisma.user.create({
+  const demo = await prisma.user.create({
     data: { name: 'Demo Member', email: 'demomember@gmail.com', password: demoPassword, role: 'Member' }
   });
 
-  const Test = await prisma.user.create({
+  const test = await prisma.user.create({
     data: { name: 'test Member', email: 'test1@gmail.com', password: testPassword, role: 'Member' }
   });
 
